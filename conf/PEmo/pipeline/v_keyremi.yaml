@@ -1,0 +1,13 @@
+version: PEmo
+type: remi
+dataset:
+  type: PEmo
+  feature_path: "./dataset/remi_key_midi"
+  labels: ["HV","LV"]
+  cls_type: "V"
+  pad_idx: 362
+dataloader:
+  type: DataLoader
+  params:
+    batch_size: 16
+    num_workers: 8

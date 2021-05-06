@@ -1,0 +1,8 @@
+version: net
+type: Net
+params:
+  num_of_dim: 4
+  vocab_size: 363
+  lstm_hidden_dim: 128
+  embedding_size: 300
+  r : 16

@@ -1,0 +1,25 @@
+version: rvgpu1
+type: Runner
+optimizer: 
+  type: SGD
+  params:
+    learning_rate: 1e-3
+    momentum: 0.95
+    weight_decay: 1e-5
+    nesterov: True
+scheduler:
+  type: ReduceLROnPlateau
+  params:
+    mode: 'min'
+    factor: 0.2
+    patience: 5
+    verbose: True
+trainer:
+  type: Trainer
+  params:
+    max_epochs: 1000
+    gpus: [1]
+    distributed_backend: dp # train.py: ddp, evaluate.py: dp
+    benchmark: False
+    deterministic: True
+cuda: 'cuda:1'

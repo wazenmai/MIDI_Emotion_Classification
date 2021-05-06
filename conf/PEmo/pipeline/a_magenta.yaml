@@ -1,0 +1,13 @@
+version: PEmo
+type: magenta
+dataset:
+  type: PEmo
+  feature_path: "./dataset/magenta_midi"
+  labels: ["HA","LA"]
+  cls_type: "A"
+  pad_idx: 388
+dataloader:
+  type: DataLoader
+  params:
+    batch_size: 16
+    num_workers: 8
