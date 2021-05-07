@@ -20,8 +20,8 @@ def main(args) -> None:
 
     if args.types == "AV":
         labels= ["Q1","Q2","Q3","Q4"]
-        model = SAN( num_of_dim= 4, vocab_size= 363, lstm_hidden_dim= 128, embedding_size= 300, r=4)
-        checkpoint_path = "./exp/PEmo/SAN_KeyREMI_head4/av_keyremi_gpu1/epoch=101-val_loss=0.8405-val_acc=0.6699.ckpt"
+        model = SAN( num_of_dim= 4, vocab_size= 339, lstm_hidden_dim= 128, embedding_size= 300, r=4)
+        checkpoint_path = "./exp/PEmo/SAN_REMI_head4/av_remi_gpu1/epoch=96-val_loss=0.8408-val_acc=0.6715.ckpt"
         state_dict = torch.load(checkpoint_path, map_location=torch.device(args.cuda))
         new_state_map = {model_key: model_key.split("model.")[1] for model_key in state_dict.get("state_dict").keys()}
         new_state_dict = {new_state_map[key]: value for (key, value) in state_dict.get("state_dict").items() if key in new_state_map.keys()}
@@ -29,8 +29,8 @@ def main(args) -> None:
         model.eval()
     elif args.types == "Arousal":
         labels= ["HA","LA"]
-        checkpoint_path = "./exp/PEmo/SAN_KeyREMI_2Class_head8/a_keyremi_gpu0/epoch=36-val_loss=0.3112-val_acc=0.8830.ckpt"
-        model = SAN(num_of_dim=2, vocab_size= 363, lstm_hidden_dim= 128, embedding_size= 300, r=8)
+        checkpoint_path = "./exp/PEmo/SAN_REMI_2Class_head16/a_remi_gpu1/epoch=37-val_loss=0.3033-val_acc=0.8686.ckpt"
+        model = SAN(num_of_dim=2, vocab_size= 339, lstm_hidden_dim= 128, embedding_size= 300, r=8)
         state_dict = torch.load(checkpoint_path, map_location=torch.device(args.cuda))
         new_state_map = {model_key: model_key.split("model.")[1] for model_key in state_dict.get("state_dict").keys()}
         new_state_dict = {new_state_map[key]: value for (key, value) in state_dict.get("state_dict").items() if key in new_state_map.keys()}
@@ -38,8 +38,8 @@ def main(args) -> None:
         model.eval()
     elif args.types == "Valence":
         labels= ["HV","LV"]
-        checkpoint_path = "./exp/PEmo/SAN_KeyREMI_2Class_head8/v_keyremi_gpu0/epoch=87-val_loss=0.5332-val_acc=0.7516.ckpt"
-        model = SAN(num_of_dim=2, vocab_size= 363, lstm_hidden_dim= 128, embedding_size= 300, r=8)
+        checkpoint_path = "./exp/PEmo/SAN_REMI_2Class_head16/v_remi_gpu0/epoch=82-val_loss=0.5364-val_acc=0.7484.ckpt"
+        model = SAN(num_of_dim=2, vocab_size= 339, lstm_hidden_dim= 128, embedding_size= 300, r=8)
         state_dict = torch.load(checkpoint_path, map_location=torch.device(args.cuda))
         new_state_map = {model_key: model_key.split("model.")[1] for model_key in state_dict.get("state_dict").keys()}
         new_state_dict = {new_state_map[key]: value for (key, value) in state_dict.get("state_dict").items() if key in new_state_map.keys()}
