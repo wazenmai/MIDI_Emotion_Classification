@@ -9,7 +9,7 @@ from src.model.net import SAN
 from REMI.midi2event import analyzer, corpus, event
 
 path_data_root = "./REMI/ailab17k_from-scratch_remi"
-path_dictionary = os.path.join(path_data_root, 'dictionary_with_key.pkl')
+path_dictionary = os.path.join(path_data_root, 'dictionary.pkl')
 midi_dictionary = pickle.load(open(path_dictionary, "rb"))
 event_to_int = midi_dictionary[0]
 
